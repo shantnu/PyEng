@@ -1,3 +1,8 @@
+#! /usr/bin/python
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+
 import numpy as np
 import wave
 import struct
@@ -17,12 +22,10 @@ data = np.array(data)
 data_fft = np.fft.fft(data)
 
 # This will give us the graph we want
-a = np.abs(data_fft[:len(data_fft)/2])
-x = range(num_samples/2)
-plt.plot(x,a)
+frequencies = np.abs(data_fft[:len(data_fft)])
+
+plt.plot(frequencies)
 plt.xlim(0,1200)
-print("The frequency is {} Hz".format(np.argmax(a)))
-#Out[72]: 1000
+print("The frequency is {} Hz".format(np.argmax(frequencies)))
 
 plt.show()
-plt.plot(x,a)
