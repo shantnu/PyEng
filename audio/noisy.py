@@ -30,37 +30,38 @@ sine_noise = np.array(sine_noise)
 combined_signal = sine_wave + sine_noise
 
 x1 = range(num_samples)
-'''
+
 plt.subplot(3,1,1)
 plt.title("Original sine wave")
 
 # Need to add empty space, else everything looks scrunched up!
 plt.subplots_adjust(hspace=.5)
-plt.plot(x1[:500], sine_wave[:500])
+plt.plot(sine_wave[:500])
 
 plt.subplot(3,1,2)
 plt.title("Noisy wave")
-plt.plot(x1[:4000], sine_noise[:4000])
+plt.plot(sine_noise[:4000])
 
 plt.subplot(3,1,3)
 plt.title("Original + Noise")
-plt.plot(x1[:3000], combined_signal[:3000])
+plt.plot(combined_signal[:3000])
 
 plt.show()
-'''
+
 
 data_fft = np.fft.fft(combined_signal)
 
 freq = (np.abs(data_fft[:len(data_fft)]))
 
 x2 = np.arange(num_samples)
-'''
+
 plt.plot(x2, freq)
+plt.title("Before filtering: Will have main signal (1000Hz) + noise frequency (50Hz)")
 plt.xlim(0,1200)
 
 
 plt.show()
-'''
+
 filtered_freq = []
 index = 0
 for f in freq:
@@ -75,25 +76,28 @@ for f in freq:
     else:
         filtered_freq.append(0)
     index += 1
-'''
+
 plt.plot(x2, filtered_freq)
+plt.title("After filtering: Main signal only (1000Hz)")
 plt.xlim(0,1200)
 plt.show()
-'''
+plt.close()
 recovered_signal = np.fft.ifft(filtered_freq)
 
-print(len(recovered_signal), recovered_signal[:8])
 plt.subplot(3,1,1)
 plt.title("Original sine wave")
 # Need to add empty space, else everything looks scrunched up!
 plt.subplots_adjust(hspace=.5)
 
-plt.plot(x1[:500], sine_wave[:500])
+plt.plot(sine_wave[:500])
 
 plt.subplot(3,1,2)
+plt.title("Noisy wave")
+plt.plot(combined_signal[:4000])
+
+plt.subplot(3,1,3)
 plt.title("Sine wave after clean up")
 plt.plot((recovered_signal[:500]))
 
 plt.show()
-
 
