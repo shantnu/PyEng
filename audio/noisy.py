@@ -29,8 +29,6 @@ sine_noise = np.array(sine_noise)
 # Add them to create a noisy signal
 combined_signal = sine_wave + sine_noise
 
-x1 = range(num_samples)
-
 plt.subplot(3,1,1)
 plt.title("Original sine wave")
 
@@ -53,9 +51,7 @@ data_fft = np.fft.fft(combined_signal)
 
 freq = (np.abs(data_fft[:len(data_fft)]))
 
-x2 = np.arange(num_samples)
-
-plt.plot(x2, freq)
+plt.plot(freq)
 plt.title("Before filtering: Will have main signal (1000Hz) + noise frequency (50Hz)")
 plt.xlim(0,1200)
 
@@ -65,6 +61,7 @@ plt.show()
 filtered_freq = []
 index = 0
 for f in freq:
+    # Filter between lower and upper limits
     # Choosing 950, as closest to 1000. In real world, won't get exact numbers like these
     if index > 950 and index < 1050:
         # Has a real value. I'm choosing >1, as many values are like 0.000000001 etc
@@ -77,11 +74,12 @@ for f in freq:
         filtered_freq.append(0)
     index += 1
 
-plt.plot(x2, filtered_freq)
+plt.plot(filtered_freq)
 plt.title("After filtering: Main signal only (1000Hz)")
 plt.xlim(0,1200)
 plt.show()
 plt.close()
+
 recovered_signal = np.fft.ifft(filtered_freq)
 
 plt.subplot(3,1,1)
