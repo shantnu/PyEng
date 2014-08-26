@@ -96,20 +96,25 @@ for cnt in my.keys():
          print cnt, cnt2
          print v[cnt][cnt2]
 
-total = {}         
+total = {}
+tot2 = 0
 # find all movies not reviewed         
 for cnt in my.keys():
  if cnt in v.keys():
      #print my[cnt], v[cnt]
      for cnt2 in v[cnt]:
          if cnt2 not in  my.keys():
-            print cnt2
-            print v[cnt][cnt2]
+            #print cnt2
+            #print v[cnt][cnt2]
             if cnt2 in total:
-                total
+                total[cnt2] += v[cnt][cnt2] * my[cnt]
+                tot2+= v[cnt][cnt2] 
+                #print v[cnt][cnt2], my[cnt], total[cnt2] 
             else:
-                total.setdefault(cnt2, v[cnt][cnt2] )
-print total            
+                total.setdefault(cnt2, (v[cnt][cnt2] * my[cnt]) )
+                tot2+= v[cnt][cnt2] 
+                #print v[cnt][cnt2], my[cnt], total[cnt2] 
+print total            , tot2
          
       
 '''
