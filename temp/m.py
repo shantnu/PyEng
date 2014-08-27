@@ -76,13 +76,13 @@ def foo(m, key_a):
     return dic_bhai
 
     
-a = {}
+v = {}
 #pdb.set_trace()
 for dudes in m:
-    a[dudes] =  foo(m, dudes)
+    v[dudes] =  foo(m, dudes)
         
 
-print a
+#print v
 
 my = {'Terminator': 5.0,
       'Sherlock Holmes' : 4.0,
@@ -93,29 +93,44 @@ for cnt in my.keys():
  if cnt in v.keys():
      #print my[cnt], v[cnt]
      for cnt2 in v[cnt]:
-         print cnt, cnt2
-         print v[cnt][cnt2]
+        pass
+         #print cnt, cnt2
+         #print v[cnt][cnt2]
 
 total = {}
-tot2 = 0
+tot2 = {}
+tot = 0 
 # find all movies not reviewed         
 for cnt in my.keys():
  if cnt in v.keys():
      #print my[cnt], v[cnt]
      for cnt2 in v[cnt]:
+         tot = 0 
          if cnt2 not in  my.keys():
             #print cnt2
             #print v[cnt][cnt2]
             if cnt2 in total:
                 total[cnt2] += v[cnt][cnt2] * my[cnt]
-                tot2+= v[cnt][cnt2] 
+                tot+=v[cnt][cnt2] 
+                print cnt2, tot
+                tot2[cnt2] +=  tot
                 #print v[cnt][cnt2], my[cnt], total[cnt2] 
             else:
                 total.setdefault(cnt2, (v[cnt][cnt2] * my[cnt]) )
-                tot2+= v[cnt][cnt2] 
+                tot+=v[cnt][cnt2] 
+                print cnt2, tot
+                tot2.setdefault(cnt2, tot)
                 #print v[cnt][cnt2], my[cnt], total[cnt2] 
-print total            , tot2
-         
+print tot2, total
+
+recomend = {}
+r2 = {}
+for cnt in total.keys():
+    if cnt in tot2:
+        recomend.setdefault(cnt, total[cnt]/tot2[cnt])
+        r2.setdefault(cnt, total[cnt]/len(total.keys()))
+        
+print recomend, r2
       
 '''
 [a[key_b][ll] for ll in a[key_a] if ll in a[key_b]]
