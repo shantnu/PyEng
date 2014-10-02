@@ -62,7 +62,8 @@ red_ideal.meanColor() #(0.058333333333333334, 0.0, 254.0)
 
 blue_ideal = Image("blue_ideal.jpg")
 blue_ideal = blue_ideal.crop(shirt_location)
-# Pure red!
+
+# Pure blue!
 blue_ideal.meanColor()  #(254.0, 0.0, 0.008333333333333333)
 
 # Find the different colored blobs
