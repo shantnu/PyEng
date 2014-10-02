@@ -38,6 +38,7 @@ shirt = sys.argv[1]
 shirt = Image(shirt)
 shirt = shirt.crop(shirt_location)
 
+print(shirt.meanColor())
 # Find rgb values
 blob = shirt.findBlobs()
 red, green, blue = find_rgb(blob)

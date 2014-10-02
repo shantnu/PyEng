@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<form action="{{ url_for('add') }}"  method="post" class="add">
+    <p> Please enter commmand to run</p>
+    <input type="text", name="post">
+    <input class="button" type="submit" value="Run command remotely">
+    </form>
+</form>
+
+<br>
+<br>
+
+{% if msg %}
+<b> Running command</b> <i> {{command}} <i>:
+<br>
+<br>
+{% for m in msg %}
+   {{m}}
+   <br>
+{%endfor %}
+{% endif %}
