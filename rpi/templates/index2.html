@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    rel="stylesheet"><!-- Optional theme -->
+    <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    rel="stylesheet"><!-- Latest compiled and minified JavaScript -->
+
+    <script src=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+    form#add-post{padding:15px;}
+    </style>
+
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please enter commmand to
+                        run</h3>
+                    </div>
+
+                    <form action="{{ url_for('add') }}" class="add" method=
+                    "post">
+                        <p></p><label>Run Command</label><br>
+                        <br>
+                        <input class="form-control" name="post" type=
+                        "text"><br>
+                        <br>
+                        <input class="btn btn-primary" type="submit" value=
+                        "Run command remotely">
+                    </form>
+                </div>
+            </div>
+        </div><br>
+        <br>
+        {% if msg %} <b>Running command</b> <i>{{command}} <i>:<br>
+        <br>
+        {% for m in msg %} {{m}}<br>
+        {%endfor %} {% endif %}</i></i>
+    </div>
+</body>
+</html>
