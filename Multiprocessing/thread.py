@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import threading
-import random
 from gen_rand import gen_random_data
 
 if __name__ == '__main__':

@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 user_columns = ['user_id', 'age', 'gender']
-users = pd.read_csv('u.user', sep='|', names=user_columns, usecols=range(3))
+users = pd.read_csv('movie_lens/u.user', sep='|', names=user_columns, usecols=range(3))
 
 rating_columns = ['user_id', 'movie_id', 'rating']
-ratings = pd.read_csv('u.data', sep='\t', names=rating_columns,  usecols=range(3))
+ratings = pd.read_csv('movie_lens/u.data', sep='\t', names=rating_columns,  usecols=range(3))
 
 movie_columns = ['movie_id', 'title']
-movies = pd.read_csv('u.item', sep='|', names=movie_columns, usecols=range(2))
+movies = pd.read_csv('movie_lens/u.item', sep='|', names=movie_columns, usecols=range(2))
 
 # create one merged DataFrame
 movie_ratings = pd.merge(movies, ratings)
