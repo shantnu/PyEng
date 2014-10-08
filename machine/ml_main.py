@@ -8,10 +8,7 @@ my_movies = {'Terminator': 5.0,
       'Poirot' : 4.5
       }
 
-my_movies2 = {'It happened one night': 4.0,
-              'Sherlock Holmes': 3.0,
-              'Terminator': 1.0
-              }
+
 # Read the data from the correlation dictionary we calculated earlier      
 correlated_dict = json.load(open("corr_dict.py"))
 
