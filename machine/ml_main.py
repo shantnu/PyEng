@@ -1,5 +1,3 @@
-import scipy.stats 
-import numpy as np
 import pdb
 import json
 
@@ -11,7 +9,7 @@ my_movies = {'Terminator': 5.0,
       }
 
 my_movies2 = {'It happened one night': 4.0,
-              '27 Dresses': 4.0,
+              'Sherlock Holmes': 3.0,
               'Terminator': 1.0
               }
 # Read the data from the correlation dictionary we calculated earlier      
@@ -25,9 +23,6 @@ running_total = 0
 
 # Loop over rated movies
 for movie_key in my_movies.keys():
-   
-   # Is the movie I rated in the correlated dictionary? If so, loop over it.
-    if movie_key in correlated_dict.keys():
         
         # Loop over the dictionary of correlation coefficients
         for corr_coefs in correlated_dict[movie_key]:
@@ -44,23 +39,20 @@ for movie_key in my_movies.keys():
                     
                 else:
                     # If this is not the first time, merely update the values we have created before
-                    total_my_votes[corr_coefs] += correlated_dict[movie_key][corr_coefs] * my_movies[movie_key]
-
-                    
+                    total_my_votes[corr_coefs] += correlated_dict[movie_key][corr_coefs] * my_movies[movie_key]       
 
 print "total_my_votes = ", total_my_votes
 
-
 recommended_movies = {}
 for movie_key in total_my_votes.keys():
-    if movie_key in total_my_votes:
-        recommended_movies.setdefault(movie_key, total_my_votes[movie_key]/len(total_my_votes.keys()))
+    recommended_movies[movie_key] =  total_my_votes[movie_key] / len(total_my_votes.keys())
         
-#print recommended_movies
+print recommended_movies
 
 for movie_key in recommended_movies:
-    if recommended_movies[movie_key] > 0.0:
-        print "Recommended for you: ", movie_key
-    
-    if recommended_movies[movie_key] < 0.0:
+    if recommended_movies[movie_key] > 3.0:
+        print "Strongly recommended for you: ", movie_key
+    elif recommended_movies[movie_key] > 0.0:
+        print "Recommended for you: ", movie_key    
+    else :
         print "Not recommended: ", movie_key
