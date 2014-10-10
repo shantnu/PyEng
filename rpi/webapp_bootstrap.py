@@ -8,8 +8,8 @@ import subprocess
 app = Flask(__name__)
 
 
-@app.route("/<path:command>", methods = ['GET', 'POST'])
-@app.route("/", methods = ['GET', 'POST'])
+@app.route("/<path:command>")
+@app.route("/")
 def home(command = None):
 
     msg = None
