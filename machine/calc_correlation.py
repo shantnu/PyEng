@@ -51,6 +51,4 @@ for movie in movies_list:
 
 print correlated_dict
 
-json.dump(correlated_dict, open("corr_dict.py",'w'))    
-
-
+json.dump(correlated_dict, open("corr_dict.py",'w'))

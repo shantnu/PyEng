@@ -22,21 +22,21 @@ running_total = 0
 for movie_key in my_movies.keys():
         
         # Loop over the dictionary of correlation coefficients
-        for corr_coefs in correlated_dict[movie_key]:
+        for movie_to_compare in correlated_dict[movie_key]:
             running_total = 0 
             
             # If it is not a movie I have rated, we can calculate the correlation
-            if corr_coefs not in my_movies.keys():
+            if movie_to_compare not in my_movies.keys():
             
                 # If this is the first time we are running the code, we won't have anything stored.
                 # In that case, create a new dictionary element.
-                if corr_coefs not in total_my_votes:
+                if movie_to_compare not in total_my_votes:
                     # Line below creates a new dictionary element for total_my_votes and gives it a value.
-                    total_my_votes.setdefault(corr_coefs, (correlated_dict[movie_key][corr_coefs] * my_movies[movie_key]) )
+                    total_my_votes.setdefault(movie_to_compare, (correlated_dict[movie_key][movie_to_compare] * my_movies[movie_key]) )
                     
                 else:
                     # If this is not the first time, merely update the values we have created before
-                    total_my_votes[corr_coefs] += correlated_dict[movie_key][corr_coefs] * my_movies[movie_key]       
+                    total_my_votes[movie_to_compare] += correlated_dict[movie_key][movie_to_compare] * my_movies[movie_key]       
 
 print "total_my_votes = ", total_my_votes
 
