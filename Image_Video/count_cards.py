@@ -23,5 +23,5 @@ contours, hierarchy = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPRO
 print("Number of objects found = ", len(contours))
 
 cv2.drawContours(image, contours, -1, (0,255,0), 2)
-cv2.imshow("objects Found", objects)
+cv2.imshow("objects Found", image)
 cv2.waitKey(0)

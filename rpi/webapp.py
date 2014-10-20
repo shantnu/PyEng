@@ -14,7 +14,7 @@ def home(command = None):
 
     msg = None
     if command:
-        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         msg = p.communicate()[0]
         msg = msg.split("\n")
 
