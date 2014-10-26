@@ -24,3 +24,15 @@ plt.title("Salary of 10 random people")
 plt.show()
 
 print(np.max(salary), np.min(salary), np.average(salary), np.median(salary))
+
+salaries_new = salary[2:-2]
+names_new = names[2:-2]
+
+x = range(len(names_new))
+
+plt.plot(x, salaries_new)
+plt.xticks(x, names_new)
+
+plt.show()
+
+print(np.max(salaries_new), np.min(salaries_new), np.average(salaries_new))
