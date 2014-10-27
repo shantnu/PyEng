@@ -30,7 +30,7 @@ names_new = names[2:-2]
 
 x = range(len(names_new))
 
-plt.plot(x, salaries_new)
+plt.bar(x, salaries_new)
 plt.xticks(x, names_new)
 
 plt.show()
