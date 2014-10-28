@@ -34,18 +34,20 @@ data_age.rename(columns={u'Unnamed: 0': u'Year'}, inplace=True)
 data_age.dropna(inplace=True)
 data_age.set_index('Year', inplace=True)
 
-# Plotting everything cause total to override everything. So drop it.
+#plot
+data_age.plot()
+plt.show()
 
+# Plotting everything cause total to override everything. So drop it.
 # Drop the total column and plot
 data_age_minus_total = data_age.drop('Total', axis = 1)
 data_age_minus_total.plot()
 plt.show()
+
+plt.close()
 
 #Plot children vs adults
 data_age['Under 16'].plot(label = "Under 16")
 data_age['25-34'].plot(label = "25-34")
 plt.legend(loc="upper right")
 plt.show()
-
-
-

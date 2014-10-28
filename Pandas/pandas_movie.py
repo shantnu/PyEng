@@ -52,6 +52,9 @@ print "\n"
 ratings_by_gender['diff'] = ratings_by_gender['M'] - ratings_by_gender['F']
 gender_diff = ratings_by_gender['diff']
 
+print "Difference by gender \n", ratings_by_gender.head()
+print "\n"
+
 # Only get absolute values
 gender_diff = abs(gender_diff)
 
