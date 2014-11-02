@@ -8,11 +8,10 @@ import cv2
 import numpy as np
 import time
 
-filepath = sys.argv[1]
-
 if len(sys.argv) < 2:
     video_capture = cv2.VideoCapture(0)
 else:
+    filepath = sys.argv[1]
     video_capture = cv2.VideoCapture(filepath)
 
 ret, last_frame = video_capture.read()
