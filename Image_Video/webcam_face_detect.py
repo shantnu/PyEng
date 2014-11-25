@@ -9,7 +9,7 @@ import cv2
 
 cascasdepath = sys.argv[1]
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 3:
     video_capture = cv2.VideoCapture(0)
 else:
     video_capture = cv2.VideoCapture(sys.argv[2])
