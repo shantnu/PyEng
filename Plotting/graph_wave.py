@@ -6,7 +6,7 @@ from __future__ import absolute_import
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Create x, randomly spaced between 0 to 20
+# Create x, evenly spaced between 0 to 20
 x = np.linspace(0, 20, 1000)
 y1 = np.sin(x)
 y2 = np.cos(x)
