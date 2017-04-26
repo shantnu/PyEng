@@ -18,10 +18,10 @@ cv2.imshow("Blurred image", blurred_image)
 canny = cv2.Canny(blurred_image, 30, 100)
 cv2.imshow("Canny", canny)
 
-contours, hierarchy, _ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+im, contours, hierarchy= cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-print("Number of objects found = ", len(hierarchy))
+print("Number of objects found = ", len(contours))
 
-cv2.drawContours(image, hierarchy, -1, (0,255,0), 2)
+cv2.drawContours(image, contours, -1, (0,255,0), 2)
 cv2.imshow("objects Found", image)
 cv2.waitKey(0)
