@@ -1,13 +1,10 @@
 #!/usr/bin/python
-from __future__ import print_function
-from __future__ import division
-from __future__ import absolute_import
 
 import sys
 import cv2
 
 
-cascasdepath = sys.argv[1]
+cascasdepath = "haarcascade_frontalface_default.xml"
 
 if len(sys.argv) < 3:
     video_capture = cv2.VideoCapture(0)
