@@ -28,15 +28,10 @@ compname="not compressed"
 nchannels=1
 sampwidth=2
 
-wav_file=wave.open(file, 'w')    
+wav_file=wave.open(file, 'w')
 wav_file.setparams((nchannels, sampwidth, int(sampling_rate), nframes, comptype, compname))
 
 for s in sine_wave:
     wav_file.writeframes(struct.pack('h', int(s*amplitude)))
 
 wav_file.close()
-
-
-
-
-

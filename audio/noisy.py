@@ -1,8 +1,4 @@
 #! /usr/bin/python
-from __future__ import print_function
-from __future__ import division
-from __future__ import absolute_import
-
 import numpy as np
 import wave
 import struct
@@ -98,4 +94,3 @@ plt.title("Sine wave after clean up")
 plt.plot((recovered_signal[:500]))
 
 plt.show()
-
