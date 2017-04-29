@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 data = pd.ExcelFile("Obes-phys-acti-diet-eng-2014-tab.xls")
-print  data.sheet_names
+print  (data.sheet_names)
 
 # Read section 7.1 from the Excel file
 
@@ -25,7 +25,7 @@ plt.show()
 
 # Read 2nd section, by age
 data_age  = data.parse(u'7.2', skiprows=4, skipfooter=14)
-print data_age
+print (data_age)
 
 # Rename unames to year
 data_age.rename(columns={u'Unnamed: 0': u'Year'}, inplace=True)
