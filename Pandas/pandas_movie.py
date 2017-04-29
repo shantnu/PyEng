@@ -9,7 +9,7 @@ rating_columns = ['user_id', 'movie_id', 'rating']
 ratings = pd.read_csv('movie_lens/u.data', sep='\t', names=rating_columns,  usecols=range(3))
 
 movie_columns = ['movie_id', 'title']
-movies = pd.read_csv('movie_lens/u.item', sep='|', names=movie_columns, usecols=range(2))
+movies = pd.read_csv('movie_lens/u.item', sep='|', names=movie_columns, usecols=range(2), encoding="iso-8859-1")
 
 # create one merged DataFrame
 movie_ratings = pd.merge(movies, ratings)
@@ -30,14 +30,18 @@ teens = movie_data[(movie_data.age > 12) & (movie_data.age < 20)]
 # Get the top rated ones
 teens = teens.groupby('title').size().sort_values(ascending=False)
 
-print("Top ten movies for teens: \n", teens[:10])
-print("\n")
 print("Top ten movies for oldies: \n", oldies[:10])
 print("\n")
+print("Top ten movies for teens: \n", teens[:10])
+print("\n")
+
 ratings_by_title = movie_data.groupby('title').size()
 popular_movies = ratings_by_title.index[ratings_by_title >= 250]
 
 ratings_by_gender = movie_data.pivot_table('rating', index='title',columns='gender')
+
+print("Rated movies by gender \n", ratings_by_gender.head())
+print("\n")
 
 ratings_by_gender = ratings_by_gender.ix[popular_movies]
 
