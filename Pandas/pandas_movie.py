@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 user_columns = ['user_id', 'age', 'gender']
 users = pd.read_csv('movie_lens/u.user', sep='|', names=user_columns, usecols=range(3))
