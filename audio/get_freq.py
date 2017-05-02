@@ -29,6 +29,6 @@ plt.plot(frequencies)
 plt.title("Frequencies found")
 
 plt.xlim(0,1200)
-
+plt.savefig('wave.png').
 
 plt.show()
