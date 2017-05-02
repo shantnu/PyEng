@@ -1,7 +1,6 @@
 import numpy as np
 import wave
 import struct
-import matplotlib.pyplot as plt
 
 # frequency is the number of times a wave repeats a second
 frequency = 1000
