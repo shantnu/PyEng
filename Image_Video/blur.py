@@ -16,3 +16,6 @@ cv2.imshow("Gray Image", gray_image)
 cv2.imshow("Blurred Image", blurred_image)
 
 cv2.waitKey(0)
+
+
+
