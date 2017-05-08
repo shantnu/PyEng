@@ -16,7 +16,7 @@ def home(command = None):
     if command:
         p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         msg = p.communicate()[0]
-        msg = msg.split("\n")
+        msg = msg.decode().split("\n")
 
     return render_template("index2.html", command = command, msg = msg)
 
