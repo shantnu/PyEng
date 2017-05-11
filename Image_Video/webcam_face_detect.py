@@ -9,7 +9,7 @@ cascasdepath = "haarcascade_frontalface_default.xml"
 if len(sys.argv) < 2:
     video_capture = cv2.VideoCapture(0)
 else:
-    video_capture = cv2.VideoCapture(sys.argv[2])
+    video_capture = cv2.VideoCapture(sys.argv[1])
 
 while True:
     ret, image = video_capture.read()
