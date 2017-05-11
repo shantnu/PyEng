@@ -11,9 +11,8 @@ else:
     filepath = sys.argv[1]
     video_capture = cv2.VideoCapture(filepath)
 
+# Read two frames, last and current, and convert current to gray.
 ret, last_frame = video_capture.read()
-gray = cv2.cvtColor(last_frame, cv2.COLOR_BGR2GRAY)
-
 ret, current_frame = video_capture.read()
 gray = cv2.cvtColor(current_frame, cv2.COLOR_BGR2GRAY)
 
