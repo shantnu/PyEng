@@ -5,6 +5,7 @@ import cv2
 
 
 cascasdepath = "haarcascade_frontalface_default.xml"
+face_cascade = cv2.CascadeClassifier(cascasdepath)
 
 if len(sys.argv) < 2:
     video_capture = cv2.VideoCapture(0)
@@ -18,9 +19,7 @@ while True:
         break
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    face_cascade = cv2.CascadeClassifier(cascasdepath)
-
+  
     faces = face_cascade.detectMultiScale(
         gray,
         scaleFactor = 1.2,
