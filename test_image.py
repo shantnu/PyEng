@@ -1,5 +1,5 @@
 from pdb import Pdb
-from Image_Video import display,blur,edge_detect
+from Image_Video import display,blur,edge_detect,count_cards,face_detect
 import os
 import glob
 
@@ -36,5 +36,31 @@ def test_edge():
 
 
 
+def test_count_cards():
+    try:
+        for f in glob.glob("test*.png"):
+            os.remove(f)
+    except:
+        pass
+    image = "Image_Video/cards.jpg"
+    cards = count_cards.count_cards(image, True)
+    assert(cards == 5)
+    assert(os.path.exists("test_count_cards.png"))
     for f in glob.glob("test*.png"):
         os.remove(f)
+
+def test_face_detect():
+    try:
+        for f in glob.glob("test*.png"):
+            os.remove(f)
+    except:
+        pass
+    image = "Image_Video/abba.png"
+    faces = face_detect.face_detect(image, True,  "Image_Video/haarcascade_frontalface_default.xml")
+    assert(faces == 4)
+    assert(os.path.exists("test_face.png"))
+    for f in glob.glob("test*.png"):
+        os.remove(f)
+
+
+TODO test for webcam face detect, dont know if can test motion deetct

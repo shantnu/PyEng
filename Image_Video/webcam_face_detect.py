@@ -19,7 +19,7 @@ while True:
         break
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-  
+
     faces = face_cascade.detectMultiScale(
         gray,
         scaleFactor = 1.2,
@@ -28,12 +28,12 @@ while True:
 
         )
 
-    #print("The number of faces found = ", len(faces))
+    print("The number of faces found = ", len(faces))
 
     for (x,y,w,h) in faces:
         cv2.rectangle(image, (x,y), (x+h, y+h), (0, 255, 0), 2)
 
-    cv2.imshow("Faces found", image)    
+    cv2.imshow("Faces found", image)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
