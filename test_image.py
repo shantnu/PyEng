@@ -1,5 +1,5 @@
 from pdb import Pdb
-from Image_Video import display,blur,edge_detect,count_cards,face_detect
+from Image_Video import display,blur,edge_detect,count_cards,face_detect,webcam_face_detect
 import os
 import glob
 
@@ -63,4 +63,15 @@ def test_face_detect():
         os.remove(f)
 
 
-TODO test for webcam face detect, dont know if can test motion deetct
+def test_webcam_face_detect():
+    try:
+        for f in glob.glob("test*.png"):
+            os.remove(f)
+    except:
+        pass
+    image = "Image_Video/abba.png"
+    faces = webcam_face_detect.webcam_face_detect("Image_Video/webcam.mp4", True,  "Image_Video/haarcascade_frontalface_default.xml")
+    assert(faces == 2)
+
+    for f in glob.glob("test*.png"):
+        os.remove(f)
