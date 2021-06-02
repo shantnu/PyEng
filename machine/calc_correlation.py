@@ -35,19 +35,25 @@ def find_correlation(movie_list, movie_for_correlation):
 
     return correlate_dict
 
-if len(sys.argv) < 2:
-    print("Usage: python calc_correlation.py <data file.py>")
-    exit(1)
 
-with open(sys.argv[1], 'r') as f:
-    temp = f.read()
-    movies_list = ast.literal_eval(temp)
-    print(movies_list)
+def main(infile):
+    with open(infile, 'r') as f:
+        temp = f.read()
+        movies_list = ast.literal_eval(temp)
+        print(movies_list)
 
-correlated_dict = {}
-for movie in movies_list:
-    correlated_dict[movie] =  find_correlation(movies_list, movie)
+    correlated_dict = {}
+    for movie in movies_list:
+        correlated_dict[movie] =  find_correlation(movies_list, movie)
 
-print(correlated_dict)
+    print(correlated_dict)
 
-json.dump(correlated_dict, open("corr_dict.py",'w'))
+    json.dump(correlated_dict, open("corr_dict.py",'w'))
+    return correlated_dict
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python calc_correlation.py <data file.py>")
+        exit(1)
+
+    main(sys.argv[1])
