@@ -5,4 +5,4 @@ def test_obseity():
     assert(value == 1711.0)
 
 def test_movie():
-    assert(pandas_movie.movie(True,"Pandas/") == 0.6127323258641648)
+    assert(pandas_movie.movie(True,"Pandas/") == 0.61)
